@@ -5,22 +5,29 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f9fa;
   color: #343a40;
-  align-items: center;
+  line-height: 1.5;
 }
 
 .container {
-  max-width: 960px;
-  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
   padding: 20px;
+  margin: 0 auto;
 }
 
 img {
   width: 100%;
-  height: 100px;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
   margin-bottom: 20px;
 }
 
@@ -32,39 +39,47 @@ h2, h3 {
 /* Form styling */
 .form-container {
   background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .form-container label {
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 5px;
+  display: block;
 }
 
-.form-container input, .form-container select, .form-container textarea {
+.form-container input,
+.form-container select,
+.form-container textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 10px 12px;
   border: 1px solid #ced4da;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
 }
 
-.form-container input[type="text"],
-.form-container input[type="number"],
-.form-container select {
-  color: #495057;
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 .form-container button {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -79,7 +94,7 @@ h2, h3 {
 }
 
 .select2-selection__rendered {
-  font-size: 16px;
+  font-size: 1rem;
   color: #495057;
 }
 
@@ -87,25 +102,29 @@ h2, h3 {
 .table-container {
   background-color: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
 }
 
 .table-container table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  min-width: 600px;
 }
 
 .table-container th, .table-container td {
   padding: 12px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 0.95rem;
 }
 
 .table-container th {
   background-color: #007bff;
   color: white;
+  font-weight: 600;
 }
 
 .table-container td {
@@ -118,6 +137,8 @@ h2, h3 {
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  color: #fff;
+  border: none;
 }
 
 .table-container .btn-warning {
@@ -137,17 +158,10 @@ h2, h3 {
 }
 
 #total-biaya {
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #007bff;
   margin: 15px 0;
-}
-
-#biaya-prorate {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: green;
-  margin-top: 10px;
 }
 
 
@@ -177,45 +191,57 @@ h2, h3 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-}
-
-#loading-overlay .spinner-border {
-  width: 3rem;
-  height: 3rem;
-  border-width: 0.3em;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #007bff;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .form-row {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-    margin-top: 5px;
-  }
   .container {
-    padding: 15px;
+    padding: 16px;
   }
 
   .form-container, .table-container {
-    padding: 15px;
+    padding: 16px;
   }
 
   .table-container table {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 
-  .form-container input, .form-container select {
-    font-size: 14px;
+  .form-container input,
+  .form-container select {
+    font-size: 0.9rem;
+  }
+
+  #total-biaya {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  html {
+    font-size: 15px;
+  }
+
+  .form-container button {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .table-container table {
+    font-size: 0.85rem;
+  }
+
+  #loading-overlay {
+    font-size: 1.2rem;
   }
 }
