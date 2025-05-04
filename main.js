@@ -87,12 +87,9 @@ $(document).ready(function () {
       $('#nama-pelanggan').append(new Option(nama, nama));
     }
   });
-    // Inisialisasi Select2 untuk nama pelanggan
-    $('#nama-pelanggan').select2({
-      placeholder: 'Pilih Nama Pelanggan',
-      allowClear: true,
-      width: '100%' // agar responsive
-    });
+  $('#nama-pelanggan').trigger('change');
+}
+
     
   function updateTabel(filteredData = pelangganData) {
     $('#tabel-body').empty();
