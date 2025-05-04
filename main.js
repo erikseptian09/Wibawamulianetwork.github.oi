@@ -1,6 +1,7 @@
 $(document).ready(function () {
   let pelangganData = JSON.parse(localStorage.getItem('pelangganData')) || [];
   let daftarNama = JSON.parse(localStorage.getItem('daftarNama')) || [];
+  let namaTerpakai = pelangganData.map(p => p.nama);
 
   // Tombol export data
     $('#export-nama-btn').on('click', function () {
@@ -80,18 +81,14 @@ $(document).ready(function () {
 
 
   function updateDropdown() {
-    $('#nama-pelanggan').empty().append(new Option('Pilih Nama Pelanggan', ''));
-    daftarNama.forEach(nama => {
+  $('#nama-pelanggan').empty().append(new Option('Pilih Nama Pelanggan', ''));
+  daftarNama.forEach(nama => {
+    if (!pelangganData.some(p => p.nama === nama)) {
       $('#nama-pelanggan').append(new Option(nama, nama));
-    });
-    $('#nama-pelanggan').trigger('change');
-  }
-  // Inisialisasi Select2 untuk nama pelanggan
-    $('#nama-pelanggan').select2({
-      placeholder: 'Pilih Nama Pelanggan',
-      allowClear: true,
-      width: '100%' // agar responsive
-    });
+    }
+  });
+  $('#nama-pelanggan').trigger('change');
+}
 
   function updateTabel(filteredData = pelangganData) {
     $('#tabel-body').empty();
@@ -175,15 +172,20 @@ $(document).ready(function () {
     $('#form-pelanggan').data('edit-index', index);
   });
 
-  $(document).on('click', '.delete-btn', function () {
-    const index = $(this).data('index');
-    if (confirm('Yakin ingin menghapus pelanggan ini?')) {
-      pelangganData.splice(index, 1);
-      saveData();
+$(document).on('click', '.delete-btn', function () {
+  const index = $(this).data('index');
+  if (confirm('Yakin ingin menghapus pelanggan ini?')) {
+    const namaDihapus = pelangganData[index].nama;
+    pelangganData.splice(index, 1);
+    saveData();
+    // Animasi fadeOut baris
+    $(this).closest('tr').fadeOut(400, function () {
       updateTabel();
       updateDropdown();
-    }
-  });
+    });
+  }
+});
+
 
   $('#kelola-nama-btn').on('click', function () {
     $('#modalKelolaNama').modal('show');
