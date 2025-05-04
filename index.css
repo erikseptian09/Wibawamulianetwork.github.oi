@@ -17,8 +17,8 @@ body {
 }
 
 .container {
-  max-width: 100%;
-  width: 100%;
+  max-width: 150%;
+  width: 120%;
   padding: 20px;
   margin: 0 auto;
 }
