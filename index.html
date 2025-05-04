@@ -103,9 +103,8 @@
 
     <div class="mt-4 d-inline justify-content-between align-items-center">
       <div id="biaya-prorate"></div>
-      <div class="d-flex gap-2">
-        <input type="date" id="filter-tanggal" class="form-control">
-        <button class="btn btn-outline-primary" id="export-excel-btn">Export Excel</button>
+      <div class="d-inline gap-2">
+        <input type="date" id="filter-tanggal" class="form-control" placeholder="filter-tanggal">
         <button class="btn btn-outline-info" id="export-nama-btn">Export Nama</button>
         <button class="btn btn-outline-dark" id="import-nama-btn">Import Nama</button>
         <input type="file" id="import-nama-file" accept=".json" style="display: none">
@@ -131,6 +130,7 @@
       </table>
     </div>
     <h5 id="total-biaya" class="text-success"></h5>
+    <button class="btn btn-outline-primary" id="export-excel-btn">Export Excel</button>
   </div>
 
   <!-- Modal Kelola Nama -->
