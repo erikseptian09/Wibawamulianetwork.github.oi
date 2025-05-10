@@ -8,15 +8,18 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      background: linear-gradient(to right, #297ed3, #21578d);
       font-family: 'Segoe UI', sans-serif;
       font-size: 16px;
     }
     .card {
-      margin: 2rem auto;
+      margin: 4rem auto;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       border-radius: 1rem;
       overflow-x: auto;
+      background-image: url('Wbm4.jpg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
     }
     .card-header {
       background-color: #0d6efd;
@@ -25,22 +28,43 @@
       font-size: 1.25rem;
       font-weight: bold;
     }
-    table.dataTable thead {
-      background-color: #e3f2fd;
-    }
+    
+  .table, .table th, .table td {
+    background-color: transparent !important;
+    color: #3cff4a;
+  }
     table.dataTable tbody tr:hover {
-      background-color: #f1f1f1;
+      background-color: rgb(73,123,248);
     }
     .modal-lg {
       max-width: 700px;
     }
+    img {
+      width: 50px;
+      margin-right: 1rem;
+    }
+.marquee-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0d6efd;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
+<marquee class="marquee-fixed">
+    Selamat Datang Di Data Pelanggan Wibawamulia.Network ( Wbm.Net )
+  </marquee>
   <div class="container-fluid">
     <div class="card">
       <div class="card-header text-center">
-        <i class="fas fa-users"></i> Data Pelanggan Aktif
+        <img src="wbm1.jpg" alt="wbm1.jpg" />
+        <i class="fas fa-users" ></i> Data Pelanggan Wbm.Net
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -61,7 +85,9 @@
           </table>
         </div>
       </div>
-    </div><div class="card">
+    </div>
+     <hr />
+    <div class="card">
   <div class="card-header text-center bg-success">
     <i class="fas fa-check-circle"></i> Pelanggan Lunas
   </div>
@@ -179,7 +205,6 @@
           });
           $('#example1').DataTable({ scrollX: true });
         });
-
       $('#formEdit').on('submit', function (e) {
         e.preventDefault();
         const no = $('#editNo').val();
