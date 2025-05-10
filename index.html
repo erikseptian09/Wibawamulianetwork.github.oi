@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,7 +12,6 @@
       background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
     }
-
     .hero {
       padding: 5rem 1rem;
       text-align: center;
@@ -21,7 +21,6 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-
     .hero::before {
       content: "";
       position: absolute;
@@ -30,58 +29,70 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
-
     .hero > * {
       position: relative;
       z-index: 1;
     }
-
     #typed-text {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: bold;
     }
-
     #part1 { color: white; }
     #part2 { color: #00ccff; }
-
     #typed-text::after {
       content: "|";
       animation: blink 1s infinite;
     }
-
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-
     .section {
       padding: 2.5rem 1rem;
     }
-
     .card {
       background-color: #ffffff10;
       border: none;
       color: white;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
-
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-
     footer {
       background-color: #111;
       color: #ccc;
       text-align: center;
-      padding: 2rem auto;
-      font-size: 12px;
+      padding: 1rem;
+      font-size: 14px;
     }
-
     a.btn-enter {
       margin-top: 2rem;
     }
-
+    @media (min-width: 768px) {
+      #typed-text {
+        font-size: 2.5rem;
+      }
+    }
+    @media (min-width: 992px) {
+      .hero {
+        padding: 7rem 2rem;
+      }
+      .hero p {
+        font-size: 1.5rem;
+      }
+      .card h5 {
+        font-size: 1.25rem;
+      }
+      .card p {
+        font-size: 1.1rem;
+      }
+      #typed-text {
+        font-size: 3rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -89,7 +100,7 @@
   <div class="hero">
     <h1 id="typed-text"><span id="part1"></span><span id="part2"></span></h1>
     <p>Layanan Internet Berkualitas untuk Rumah dan Usaha Anda</p>
-    <a href="data_pelanggan.html" class="btn btn-success btn-lg btn-enter">Masuk ke Data Pelanggan</a>
+    <a href="data.html" class="btn btn-success btn-lg btn-enter">Masuk ke Data Pelanggan</a>
   </div>
 
   <div class="container section text-center">
@@ -101,21 +112,21 @@
     <h2 class="text-center mb-4">Paket Layanan</h2>
     <div class="row g-4">
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="card p-4 text-center h-100">
+        <div class="card p-4 text-center h-100 paket-card" data-paket="Paket Basic">
           <h5>Paket Basic</h5>
           <p>Up to 5 Mbps</p>
           <p>Rp150.000 / bulan</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="card p-4 text-center h-100">
+        <div class="card p-4 text-center h-100 paket-card" data-paket="Paket Family">
           <h5>Paket Family</h5>
-          <p>Up to 7 Mbps</p>
+          <p>Up to 70 Mbps</p>
           <p>Rp170.000 / bulan</p>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4 mx-md-auto">
-        <div class="card p-4 text-center h-100">
+        <div class="card p-4 text-center h-100 paket-card" data-paket="Paket Profesional">
           <h5>Paket Profesional</h5>
           <p>Up to 10 Mbps</p>
           <p>Rp200.000 / bulan</p>
@@ -130,7 +141,7 @@
     <ul class="list-unstyled">
       <li><strong>Telepon:</strong> 0858-1723-0536</li>
       <li><strong>Email:</strong> wbmnet2020@gmail.com</li>
-      <li><strong>Alamat:</strong> Jl. Cigutul-Lewimalang, Kp.Ciohol, No.20, Rt/Rw:006/003, Wibawamulya, Cibarusah, Kab.Bekasi, 17340</li>
+      <li><strong>Alamat:</strong> Jl. Cigutul-Lewimalang, Kp. Ciohol, Rt/Rw: 006/003, No. 20, Wibawamulya, Cibarusah, Kab. Bekasi, 17340</li>
     </ul>
   </div>
 
@@ -138,6 +149,36 @@
     &copy; 2025 Wibawamulia.Network. Semua Hak Dilindungi.
   </footer>
 
+  <!-- Modal Form Berlangganan -->
+  <div class="modal fade" id="formLangganan" tabindex="-1" aria-labelledby="formLanggananLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h5 class="modal-title" id="formLanggananLabel">Form Berlangganan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form-pendaftaran">
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="nama" required>
+            </div>
+            <div class="mb-3">
+              <label for="telepon" class="form-label">No. Telepon</label>
+              <input type="tel" class="form-control" id="telepon" required>
+            </div>
+            <div class="mb-3">
+              <label for="paket" class="form-label">Paket Pilihan</label>
+              <input type="text" class="form-control" id="paket" readonly>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Daftar Sekarang</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const text1 = "Selamat Datang di ";
     const text2 = "Wibawamulia.Network";
@@ -150,11 +191,25 @@
       }
       i++;
       if (i <= text1.length + text2.length) {
-        setTimeout(typeBoth, 100);
+        setTimeout(typeBoth, 70);
       }
     }
     document.addEventListener("DOMContentLoaded", typeBoth);
-  </script>
 
+    document.querySelectorAll('.paket-card').forEach(card => {
+      card.addEventListener('click', function () {
+        const paket = this.getAttribute('data-paket');
+        document.getElementById('paket').value = paket;
+        const modal = new bootstrap.Modal(document.getElementById('formLangganan'));
+        modal.show();
+      });
+    });
+
+    document.getElementById('form-pendaftaran').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Berhasil mendaftar paket: " + document.getElementById('paket').value);
+      bootstrap.Modal.getInstance(document.getElementById('formLangganan')).hide();
+    });
+  </script>
 </body>
 </html>
