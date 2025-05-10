@@ -54,7 +54,7 @@
       font-weight: bold;
       z-index: 999;
     }
-
+    
     footer {
       font-size:20px;
       background-color: #63636392;
@@ -62,7 +62,32 @@
       text-align: center;
       padding: 15px;
     }
-  </style>
+  
+
+@media (max-width: 768px) {
+  .card {
+    margin: 4rem 1rem;
+    background-size: cover;
+  }
+  img {
+    width: 40px;
+  }
+  .card-header {
+    font-size: 1rem;
+  }
+  footer {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .modal-lg {
+    max-width: 95% !important;
+  }
+}
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+</style>
 </head>
 <body>
 <marquee class="marquee-fixed">
@@ -159,10 +184,10 @@
       </div>
     </div>
   </div>
-
-<hr />
-
-  <footer>©Wbm.Net 2020.com</footer>
+  
+  <footer>
+    ©Wbm.Net2020.com
+  </footer>
   
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>  <script>
     let dataGlobal = [];
