@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,6 +11,7 @@
       background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
     }
+
     .hero {
       padding: 5rem 1rem;
       text-align: center;
@@ -21,6 +21,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -29,41 +30,46 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: 0;
     }
+
     .hero > * {
       position: relative;
       z-index: 1;
     }
+
     #typed-text {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: bold;
     }
-    #part1 {
-      color: white;
-    }
-    #part2 {
-      color: #00ccff;
-    }
+
+    #part1 { color: white; }
+    #part2 { color: #00ccff; }
+
     #typed-text::after {
       content: "|";
       animation: blink 1s infinite;
     }
+
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
     .section {
-      padding: 3rem 1rem;
+      padding: 2.5rem 1rem;
     }
+
     .card {
       background-color: #ffffff10;
       border: none;
       color: white;
       transition: transform 0.3s ease;
     }
+
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
+
     footer {
       background-color: #111;
       color: #ccc;
@@ -71,8 +77,33 @@
       padding: 1rem;
       font-size: 14px;
     }
+
     a.btn-enter {
       margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      #typed-text {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .hero {
+        padding: 7rem 2rem;
+      }
+      .hero p {
+        font-size: 1.5rem;
+      }
+      .card h5 {
+        font-size: 1.25rem;
+      }
+      .card p {
+        font-size: 1.1rem;
+      }
+      #typed-text {
+        font-size: 3rem;
+      }
     }
   </style>
 </head>
@@ -81,7 +112,7 @@
   <div class="hero">
     <h1 id="typed-text"><span id="part1"></span><span id="part2"></span></h1>
     <p>Layanan Internet Berkualitas untuk Rumah dan Usaha Anda</p>
-    <a href="data_pelanggan.html" class="btn btn-success btn-lg btn-enter">Masuk ke Data Pelanggan</a>
+    <a href="data.html" class="btn btn-success btn-lg btn-enter">Masuk ke Data Pelanggan</a>
   </div>
 
   <div class="container section text-center">
@@ -92,22 +123,22 @@
   <div class="container section">
     <h2 class="text-center mb-4">Paket Layanan</h2>
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card p-4 text-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card p-4 text-center h-100">
           <h5>Paket Basic</h5>
           <p>Up to 5 Mbps</p>
           <p>Rp150.000 / bulan</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card p-4 text-center">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card p-4 text-center h-100">
           <h5>Paket Family</h5>
           <p>Up to 7 Mbps</p>
           <p>Rp170.000 / bulan</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card p-4 text-center">
+      <div class="col-12 col-md-6 col-lg-4 mx-md-auto">
+        <div class="card p-4 text-center h-100">
           <h5>Paket Profesional</h5>
           <p>Up to 10 Mbps</p>
           <p>Rp200.000 / bulan</p>
@@ -120,9 +151,9 @@
     <h2 class="mb-4">Hubungi Kami</h2>
     <p>Anda dapat menghubungi kami untuk informasi lebih lanjut atau layanan pelanggan:</p>
     <ul class="list-unstyled">
-      <li><strong>Telepon:</strong> 0812-3456-7890</li>
-      <li><strong>Email:</strong> support@wbm.net</li>
-      <li><strong>Alamat:</strong> Jl. Merdeka No.123, Kota Internet</li>
+      <li><strong>Telepon:</strong> 0858-1723-0536</li>
+      <li><strong>Email:</strong> wbmnet2020@gmail.com</li>
+      <li><strong>Alamat:</strong> Jl. Cigutul-Lewimalang, Kp.Ciohol, No.20, Rt/Rw:006/003, Wibawamulya, Cibarusah, Kab.Bekasi, 17340</li>
     </ul>
   </div>
 
@@ -134,7 +165,6 @@
     const text1 = "Selamat Datang di ";
     const text2 = "Wibawamulia.Network";
     let i = 0;
-
     function typeBoth() {
       if (i < text1.length) {
         document.getElementById("part1").innerHTML += text1.charAt(i);
@@ -146,7 +176,6 @@
         setTimeout(typeBoth, 100);
       }
     }
-
     document.addEventListener("DOMContentLoaded", typeBoth);
   </script>
 
