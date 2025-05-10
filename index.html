@@ -66,17 +66,18 @@
     .section {
       padding: 2.5rem 1rem;
     }
-    .card {
-      background-color: #ffffff10;
-      border: none;
-      color: white;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
+.card {
+  background-color: #ffffff10;
+  border: none;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
     footer {
       background-color: #111;
       color: #ccc;
